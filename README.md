@@ -13,6 +13,3 @@ All you have to do is:
 
 
 Once merged to master the new files will be automatically available thanks to [GitHub Pages](https://pages.github.com/).
-
-### Example
-You can modify the [events/all.json](events/all.json) file, and the result will be deployed in https://fp-in-bo.github.io/data/events/all.json
