@@ -1,0 +1,9 @@
+[{
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target" : { 
+      "namespace": "android_app", 
+      "package_name": "com.fpinbo.app",
+      "sha256_cert_fingerprints": 
+      ["AC:F2:E5:44:D3:19:F3:DA:9C:B9:10:45:63:1E:7C:07:64:EC:20:A0:5F:A8:8A:14:28:A0:98:D7:DB:F3:9F:D2"] 
+    }
+  }]
