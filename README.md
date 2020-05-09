@@ -9,7 +9,7 @@ This script will download data from the [data repo](https://github.com/fp-in-bo/
 
 All you have to do is:
 
-    /scripts/generateSite.kts templates/templateSinglePage.html templates/templateIndex.html
+    ./scripts/generateSite.kts templates/templateSinglePage.html templates/templateIndex.html
 
 
 Once merged to master the new files will be automatically available thanks to [GitHub Pages](https://pages.github.com/).

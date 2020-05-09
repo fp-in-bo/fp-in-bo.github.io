@@ -34,7 +34,9 @@ fun generateSinglePages(events: List<EventModel>, templateFile: FileInputStream)
         val content = template
             .injectSinglePageTitle(it.title)
             .injectSinglePageVideo(it.videoUrl)
+            .injectSinglePageImage(it.imageUrl)
             .injectSinglePageDescription(it.description)
+            .injectSinglePageDescriptionShort(it.description)
         Triple(
             it.id,
             content,
@@ -117,10 +119,15 @@ fun String.injectSinglePageVideo(videoUrl: String?): String {
     } else {
         """<iframe width="560" height="315" src="https://www.youtube.com/embed/$videoId" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>"""
     }
-    return replace("%VIDEO%", videoValue)
+    val embeddedVideoResolved = replace("%VIDEO%", videoValue)
+    return embeddedVideoResolved.replace("%VIDEO_URL%", videoUrl.orEmpty())
 }
 
+fun String.injectSinglePageImage(imageUrl: String): String = replace("%IMAGE_URL%", imageUrl)
+
 fun String.injectSinglePageDescription(description: String) = replaceEscaping("%DESCRIPTION%", description)
+
+fun String.injectSinglePageDescriptionShort(description: String) = replaceEscaping("%DESCRIPTION_SHORT%", description.take(160))
 
 fun String.replaceEscaping(oldValue: String, newValue: String) = replace(oldValue, escapeHtml4(newValue))
 
